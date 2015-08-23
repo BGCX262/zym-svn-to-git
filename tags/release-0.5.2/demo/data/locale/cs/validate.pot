@@ -1,0 +1,163 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Zend Framework\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jan Juricek <jan.juricek@webcorp.cz>\n"
+"Language-Team: Zym <mailto:zym-framework@googlegroups.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: English\n"
+
+
+msgid "notAlnum"
+msgstr "Musí být &#269;íslo"
+
+
+msgid "stringEmpty"
+msgstr "Nesmí být prázdné"
+
+
+msgid "notAlpha"
+msgstr "Musí obsahovat pouze &#269;ísla a písmena"
+
+
+msgid "notBetween"
+msgstr "Hodnota musí být mezi \"%min%\" a \"%max%\", v&#269;etn&#283;"
+
+
+msgid "notBetweenStrict"
+msgstr "Hodnota musí být v&#283;t&#353;í ne&#382; \"%min%\" a men&#353;í ne&#382; \"%max%\""
+
+
+msgid "ccnumLength"
+msgstr "Hodnota musí obsahovat 13 a&#382; 19 &#269;íslic"
+
+
+msgid "ccnumChecksum"
+msgstr "Luhn algoritmus (mod-10 checksum) selhal"
+
+
+msgid "dateNotYYYY-MM-DD"
+msgstr "Datum musí být ve formátu RRRR-MM-DD"
+
+
+msgid "dateInvalid"
+msgstr "\"%value%\" není platné datum"
+
+
+msgid "dateFalseFormat"
+msgstr "\"%value%\" není platné datum"
+
+
+msgid "notDigits"
+msgstr "Hodnota musí být &#269;íselná"
+
+
+msgid "emailAddressInvalid"
+msgstr "\"%value%\" není platná emailová adresa"
+
+
+msgid "emailAddressInvalidHostname"
+msgstr "\"%hostname%\" není platná doména pro adresu \"%value%\""
+
+
+msgid "emailAddressInvalidMxRecord"
+msgstr "\"%hostname%\" nemá platný MX záznam pro adresu \"%value%\""
+
+
+msgid "emailAddressDotAtom"
+msgstr "\"%localPart%\" nesouhlasí s formátem dot-atom"
+
+
+msgid "emailAddressQuotedString"
+msgstr "\"%localPart%\" does not match against the quoted-string format"
+
+
+msgid "emailAddressInvalidLocalPart"
+msgstr "\"%localPart%\" není platná &#269;ást v adrese \"%value%\""
+
+
+msgid "notFloat"
+msgstr "Hodnota musí být reálné &#269;íslo"
+
+
+msgid "notGreaterThan"
+msgstr "Hodnota musí být v&#283;t&#353;í ne&#382; \"%min%\""
+
+
+msgid "notHex"
+msgstr "Hodnota musí být hexadecimální"
+
+
+msgid "hostnameIpAddressNotAllowed"
+msgstr "Hodnota vypadá jako IP adresa, ale zadání IP adresy není dovoleno"
+
+
+msgid "hostnameUnknownTld"
+msgstr "\"%value%\" vypadá jako doména, která není v na&#353;em whitelistu"
+
+
+msgid "hostnameDashCharacter"
+msgstr "\"%value%\" vypadá jako doména, ale obsahuje poml&#269;ku na míst&#283;, kde nemá být"
+
+
+msgid "hostnameInvalidHostnameSchema"
+msgstr "\"%value%\" vypadá jako doména, ale její struktura neodpovídá schématu TLD \"%tld%\""
+
+
+msgid "hostnameUndecipherableTld"
+msgstr "\"%value%\" vypadá jako doména, ale není mo&#382;né extrahovat její TLD"
+
+
+msgid "hostnameInvalidHostname"
+msgstr "\"%value%\" neodpovídá o&#269;ekávané struktu&#345;e doménového jména"
+
+
+msgid "hostnameInvalidLocalName"
+msgstr "Hodnota není platná název lokální sít&#283;"
+
+
+msgid "hostnameLocalNameNotAllowed"
+msgstr "\"%value%\" vypadá jako název lokální sít&#283;, ale zadání lokální sít&#283; není povoleno"
+
+
+msgid "notSame"
+msgstr "Hodnoty nejsou stejné"
+
+
+msgid "missingToken"
+msgstr "Nebyl zadán token pro ov&#283;&#345;ení hodnoty"
+
+
+msgid "notInArray"
+msgstr "Hodnota \"%value%\" nebyla nalezena"
+
+
+msgid "notInt"
+msgstr "Musí být celé &#269;íslo"
+
+
+msgid "notIpAddress"
+msgstr "Hodnota není platná IP adresa"
+
+
+msgid "notLessThan"
+msgstr "Hodnota musí být men&#353;í ne&#382; \"%max%\""
+
+
+msgid "isEmpty"
+msgstr "Nesmí být prázdné"
+
+
+msgid "regexNotMatched"
+msgstr "\"%value%\" neodpovídá vzoru \"%pattern%\""
+
+
+msgid "stringLengthTooShort"
+msgstr "Hodnota musí být del&#353;í ne&#382; %min% znak&#367;"
+
+
+msgid "stringLengthTooLong"
+msgstr "Hodnota musí být krat&#353;í ne&#382; %max% znak&#367;"

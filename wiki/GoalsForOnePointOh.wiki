@@ -1,0 +1,13 @@
+#summary Goals for Zym 1.0
+#labels Phase-Deploy
+
+= Goals for Zym 1.0 =
+This page lists which components we need stable for the 1.0 release. Stable for 1.0 means each core component is unit tested and has documentation.
+
+= Componentls =
+ * All components currently in the core
+ * Zym_App
+ * Zym_Controller_Action_CrudAbstract
+ * Zym_Controller_Plugin_LayoutSwitcher
+ * Zym_Search_Lucene
+ * ...more?

@@ -1,0 +1,115 @@
+#summary An Application Engine By Zym
+#labels Featured,Phase-Design
+
+[http://zym-framework.googlegroups.com/web/logo-2.png?gda=kJ36BzwAAAC8B-U5qGXcrr-BBqYsgUT6CwIDKwmDDA2hwccigl9N3QhIKFlprGDXiyLnr_6M4kD9Wm-ajmzVoAFUlE7c_fAt]
+
+= Introduction =
+
+<wiki:toc max_depth="1" />
+
+[http://zymengine.com Zym Engine Home]
+
+Zym Engine is an extensible plugin framework that will be the base for which Zend Framework applications could be built in a reusable and re-distributable manner. Zym Engine will also allow easy integration of applications by unifying the design of aspects such as ACL, User handling, i18n, i10n, etc... While this project may seem like "just another CMS", we are not building a CMS at heart, but rather a stable base upon which one could be built. 
+
+= Software Name =
+This will be known as *Zym Engine* in that it is the core of what an application will be. We allow you to build the sports car around the engine.
+
+ engine
+ n.
+ 1. A piece of hardware that encapsulates some function but can't be used without some kind of front end. Today we have, especially, `print engine': the guts of a laser printer. 
+
+= License =
+[http://www.zym-project.com/license New BSD License]
+
+= Development Transition Plan =
+  # *April 09* Liquidate as much of Zym Framework as possible into Zend Framework
+  # *April 09* Last release of Zym Framework (0.5.4)
+  # *April 09* Send email to mailing list of project changes
+  # *May 09* Deprecate all non-usable Zym Framework components.
+  # *May 09* Plan out development of *Zym Engine*
+  # *June 09* Move *Zym Engine* development to trunk/
+  # *June 09* Recruit new Zymmers
+  # *August 09* Prototype quickly to drive community involvement
+
+= Design Considerations, Constraints, Requirements =
+  * Must be PHP 5.2.0+ compatible
+  * Zend Framework
+  * Dojo Javascript Toolkit
+  * Must be easily used in multi-frontend setups
+  * Allow for running multiple sites off one code base
+    * Control from different backends
+    * Control from one backend
+  * Easy to offload assets to CDN's (resources shouldn't be tied to a specific location within the project directory structure)
+  * Must have app files outside document root by default
+  * Must use XML for configuration by default
+  * Must be multi-lingual
+    * Must use Gettext for translation by default
+    * Must allow for use of other adapters
+
+= Theory of Operation =
+== Plugins ==
+These hooks allow modification of core features. There should be multiple types/categories of plugins and each category having an extended class simplifying tasks for that category such as listening to events from a specific object or namespace. Generic plugins extend from the base plugin class and have the most flexibility. Plugin categories should be loosely defined, allowing developers to add new categories by adding a new parent class and a place to register the new category.
+
+For example, there could be an authentication type of plugin. It would allow a developer to easily add different types of authentication methods (OpenId, Google account) for the CMS. It would extend from a class like Zym_Plugin_Auth which extends Zym_Plugin_Abstract.
+
+A generic plugin would extend Zym_Plugin_Abstract.
+
+Plugins will be designed around Zym_Message and are loaded either right before the frontController or during dispatch via a Zend_Controller_Plugin.
+
+The medium for storing the order and status of registering plugins probably should be from a DB table rather than a file, although this should be discussed later.
+
+== Blocks ==
+These are blocks or self-contained parts on a page. They can be anything from menus to news flashes. Components should be able to insert modules onto pages of the component, but the user should have the ability to pick whether a block can appear and where in the layout.
+
+Blocks should have the ability to display based on user permissions, page, and component.
+
+The best implementation of modules is probably in a controller action since then modules can simply be dispatched in a stack manor. Theming block templates would also be easy as that could be handled by the same mechanism that handles content/component templates. That will probably be done by the ViewRenderer. The drawback is that there is a big performance hit considering there could be upwards of 10 modules loaded on a page. 
+
+Blocks should have the ability to cache and the user should have the option to pick whether to cache a specific module or not.
+
+== Modules ==
+Modules are self-contained components that work similar to a Zend Framework module however; these modules will work within Zym Engine. This means that they will have a way to set their own custom routes. A possibility is that a Zend_Controller_Plugin or Zym_App resource will chain the module custom routes with a base route that requires the module name to be in front.
+
+Eg. Blog module
+All urls to the blog module by default must go through /blog.
+All custom routes defined by module must be chained with the default module route.
+So if blog defines a :year/:month/:article route, that route must be chained to the default module route making it /blog/:year/:month/:article.
+Themes
+The CMS should allow customization of almost every template. At minimum, it should allow customization of the layout. The system should allow a template to define variables and the user to select options or input values for the variables in template configuration.
+
+The templating system will probably consist of a modified Zend_Layout and ViewRenderer.
+
+== i18n & i10n ==
+ TBD
+
+== Access Control Lists ==
+Role-based permissions will be handled through Zend_Acl. The design is similar to Drupal’s system, but the main difference is that it will support single inheritance. 
+
+  * Users can be associated with multiple roles.
+  * Each role can have global permissions assigned to them such as Add/Edit/Delete/View (allow/deny)
+  * Roles can be inherited
+  * Resources can be inherited
+  * A resource would correspond to a component, which would have permissions (add/edit/delete)
+    * A component could technically use a generic resource/global permissions
+
+== Routing ==
+The CMS should include a flexible routing system at its core for items like menu urls. The routing system would consist of an admin component and a plugin at minimum. It may require that we extend all Zend_Controller_Router_Route classes to allow the routing system to override assemble(). This would allow the routing system to replace default urls on the fly with more friendly ones, which are either user defined, or by menu configuration.
+
+= TODO & Tasks =
+  * Initial Directory Structure
+  * Plugin system needs to be created
+    * Possible Zym_Plugin_Abstract
+    * Possible Zym_Plugin_Manager or Zym_Plugin_Broker
+    * Plugins must be loaded from database
+      * Plugin should be lazyloaded by type of plugin.
+      * eg. a content plugin shouldn't be loaded unless that module was initiated
+      * Could have some repercussions
+  * Routing
+    * Module routing system
+      * Read from a module acl.xml config file
+    * Global routing handling via data sources such as DB
+  * Concrete module design
+  * Menu system to go with Routing
+  * Acl System
+  * I10n & i18n System
+  * Packaging system for installation of modules/plugins/blocks

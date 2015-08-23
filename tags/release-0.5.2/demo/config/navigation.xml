@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Navigation Resource Configuration
+    This resource is used to setup the Zym_Navigation
+
+================================================================================
+Tags below <resource> are configuration for each environment set in Zym_App.
+
+Each section below extends the <default> config section if it has the 
+"extends" attribute. Adding a tag in <production> would override the value
+set from <default> for the production environment.
+-->
+<resource>
+    <!--
+    Production environment overrides
+    -->
+    <production extends="default"></production>
+    
+    <!--
+    Test environment overrides
+    -->
+    <test extends="default"></test>
+    
+    <!--
+    Development environment overrides
+    -->
+    <development extends="default"></development>
+    
+    <!--
+    Default environment config
+    
+    This environment is the default for all environments that extend it.
+    
+    A key specified here will override both the defaults and environment config
+    set inside the resource.
+    -->
+    <default>
+        <pages>
+            <home>
+                <label>Home</label>
+            </home>
+            <demoHome>
+                <label>Playground</label>
+                <module>demo</module>
+                <pages>
+                    <contextSwitch>
+                        <label>ContextSwitch</label>
+                        <controller>context-switch</controller>
+                        <module>demo</module>
+                    </contextSwitch>
+                    <error>
+                        <label>Error</label>
+                        <controller>error</controller>
+                        <module>demo</module>
+                    </error>
+                    <flashMessenger>
+                        <label>Flash Messenger</label>
+                        <controller>flash-messenger</controller>
+                        <module>demo</module>
+                    </flashMessenger>
+                    <form>
+                        <label>Form</label>
+                        <controller>form</controller>
+                        <module>demo</module>
+                    </form>
+                    <navigation>
+                        <label>Navigation</label>
+                        <controller>navigation</controller>
+                        <module>demo</module>
+                    </navigation>
+                    <message>
+                        <label>Message</label>
+                        <controller>message</controller>
+                        <module>demo</module>
+                    </message>
+                    <translation>
+                        <label>Translation</label>
+                        <controller>translate</controller>
+                        <module>demo</module>
+                    </translation>
+                </pages>
+            </demoHome>
+        </pages>
+    </default>
+</resource>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<package type="template" version="0.6">
+    <name>Default</name>
+    <version>0.6</version>
+    
+    <description>
+        Default template package
+    </description>
+    
+    <author name="Geoffrey Tran">
+        <email>geoffrey.tran@zym-project.com</email>
+        <url>http://geoffreytran.com</url>
+    </author>
+    
+    <copyright>Copyright (C) 2009 Zym Project. All rights reserved.</copyright>
+    <license>http://www.zym-project.com/license New BSD License</license>
+</package>
